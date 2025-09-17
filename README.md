@@ -1,0 +1,54 @@
+# Scratch to Reveal Svelte
+
+Wanted that scratch-card effect from Magic UI… but in Svelte. So I built it.
+
+## Installation
+
+```bash
+npm i scratch-to-reveal-svelte
+```
+
+## Minimal Example
+
+```svelte
+<ScratchToReveal 
+  width={250}
+  height={250}
+  minScratchPercentage={70}
+  gradientColors={["#A97CF8", "#F38CB8", "#FDCC92"]}
+  onComplete={() => console.log('done!')}
+>
+  <p style="font-size: 6rem;">Hiii</p>
+</ScratchToReveal>
+```
+
+## Props
+
+- **`width` / `height`** → Canvas size
+- **`minScratchPercentage`** → When to trigger complete event
+- **`gradientColors`** → Overlay colors ✨
+- **`onComplete`** → Completion callback
+- **`className`** → Custom CSS classes
+
+## Events
+
+- **`on:complete`** → Fired when reveal threshold is hit
+- **`on:scratchProgress`** → Live percentage updates
+
+## Methods
+
+- **`.reveal()`** → Reveal all content programmatically
+
+## Features
+
+- ✅ Works with keyboard (Enter/Space to reveal, Tab for focus)
+- ✅ Mobile-friendly touch support
+- ✅ IE11 compatible (with polyfills)
+
+## License
+
+MIT. Build fun stuff.
+
+## Contributing
+
+PRs welcome!
