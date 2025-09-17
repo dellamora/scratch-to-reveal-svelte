@@ -1,6 +1,6 @@
 # Scratch to Reveal Svelte
 
-<img src="/Users/dellamora/codiguinhos/scratch-to-reveal/gif.gif">
+<img src="/gif.gif">
 
 ## Installation
 
