@@ -1,18 +1,29 @@
 <script lang="ts">
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
 
-	export let width: number = 300;
-	export let height: number = 200;
-	export let minScratchPercentage: number = 50;
-	export let className: string = '';
-	export let gradientColors: string[] = ['#A97CF8', '#F38CB8', '#FDCC92'];
-	export let imageUrl: string | undefined = undefined;
-	export let onComplete: (() => void) | undefined = undefined;
-
-	const dispatch = createEventDispatcher<{
-		complete: { percentage: number };
-		scratchProgress: { percentage: number };
-	}>();
+	let {
+		width = 300,
+		height = 200,
+		minScratchPercentage = 50,
+		className = '',
+		gradientColors = ['#A97CF8', '#F38CB8', '#FDCC92'],
+		imageUrl = undefined,
+		onComplete = undefined,
+		oncomplete = undefined,
+		onscratchProgress = undefined,
+		children
+	}: {
+		width?: number;
+		height?: number;
+		minScratchPercentage?: number;
+		className?: string;
+		gradientColors?: string[];
+		imageUrl?: string | undefined;
+		onComplete?: (() => void) | undefined;
+		oncomplete?: (event: CustomEvent<{ percentage: number }>) => void;
+		onscratchProgress?: (event: CustomEvent<{ percentage: number }>) => void;
+		children?: import('svelte').Snippet;
+	} = $props();
 
 	let canvas: HTMLCanvasElement;
 	let ctx: CanvasRenderingContext2D;
@@ -119,12 +130,16 @@
 
 		const percentage = (clearPixels / totalPixels) * 100;
 		
-		dispatch('scratchProgress', { percentage });
+		if (onscratchProgress) {
+			onscratchProgress(new CustomEvent('scratchProgress', { detail: { percentage } }));
+		}
 
 		if (percentage >= minScratchPercentage) {
 			isComplete = true;
 			ctx.clearRect(0, 0, width, height);
-			dispatch('complete', { percentage });
+			if (oncomplete) {
+				oncomplete(new CustomEvent('complete', { detail: { percentage } }));
+			}
 			if (onComplete) onComplete();
 		}
 	}
@@ -134,7 +149,9 @@
 			event.preventDefault();
 			isComplete = true;
 			ctx.clearRect(0, 0, width, height);
-			dispatch('complete', { percentage: 100 });
+			if (oncomplete) {
+				oncomplete(new CustomEvent('complete', { detail: { percentage: 100 } }));
+			}
 			if (onComplete) onComplete();
 		}
 	}
@@ -291,20 +308,20 @@
 
 <div class="scratch-container {className}" style="width: {width}px; height: {height}px;">
 	<div class="content">
-		<slot />
+		{@render children?.()}
 	</div>
 	<canvas
 		bind:this={canvas}
 		{width}
 		{height}
 		class="scratch-canvas"
-		on:mousedown={handleMouseDown}
-		on:touchstart|preventDefault={handleTouchStart}
-		on:keydown={handleKeyDown}
+		onmousedown={handleMouseDown}
+		ontouchstart={(e) => { e.preventDefault(); handleTouchStart(); }}
+		onkeydown={handleKeyDown}
 		tabindex="0"
 		role="button"
 		aria-label="Scratch to reveal hidden content. Press Enter or Space to reveal all."
-	/>
+	></canvas>
 </div>
 
 <style>

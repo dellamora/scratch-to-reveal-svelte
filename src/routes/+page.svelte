@@ -76,8 +76,8 @@
 					minScratchPercentage={50}
 					className="scratch-card"
 					gradientColors={["#f1f5f9", "#cbd5e1", "#94a3b8"]}
-					on:scratchProgress={handleScratchProgress}
-					on:complete={handleComplete}
+					onscratchProgress={handleScratchProgress}
+					oncomplete={handleComplete}
 				>
 					<div class="hidden-content">
 						<span>^•ﻌ•^ฅ♡</span>
@@ -90,7 +90,7 @@
 			</div>
 			
 			<button 
-				on:click={autoReveal}
+				onclick={autoReveal}
 				class="reveal-button"
 			>
 				{isComplete ? 'Try again' : 'Reveal All'}
@@ -101,7 +101,7 @@
 			<div class="code-block">
 				<button 
 					class="copy-button" 
-					on:click={() => copyToClipboard('npm install scratch-to-reveal-svelte')}
+					onclick={() => copyToClipboard('npm install scratch-to-reveal-svelte')}
 					aria-label="Copy installation command"
 				>
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -118,8 +118,8 @@
 			<div class="code-block">
 				<button 
 					class="copy-button" 
-					on:click={() => copyToClipboard(`<script>
-  import ScratchToReveal from 'scratch-to-reveal-svelte';
+					onclick={() => copyToClipboard(`<script>
+  import ScratchToReveal from '$lib/ScratchToReveal.svelte';
 </script>
 
 <ScratchToReveal 
