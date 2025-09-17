@@ -36,9 +36,9 @@
   "author": "Francielle Dellamora",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dellamora/scratch-to-reveal"
+    "url": "https://github.com/dellamora/scratch-to-reveal-svelte"
   },
-  "homepage": "https://github.com/dellamora/scratch-to-reveal#readme",
+  "homepage": "https://github.com/dellamora/scratch-to-reveal-svelte#readme",
   "license": "MIT",
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",
