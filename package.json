@@ -1,6 +1,6 @@
 {
   "name": "@dellamora/scratch-to-reveal-svelte",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple and customizable scratch-to-reveal component for Svelte",
   "main": "dist/index.js",
   "module": "dist/index.js",
