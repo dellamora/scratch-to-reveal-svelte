@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-npm i scratch-to-reveal-svelte
+npm i @dellamora/scratch-to-reveal-svelte
 ```
 
 ## Minimal Example
