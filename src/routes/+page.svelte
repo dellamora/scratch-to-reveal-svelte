@@ -55,7 +55,7 @@
 		<header>
 			<div class="hero">
 				<h1 class="title">Scratch to Reveal</h1>
-				<a class="subtitle" href="https://github.com/dellamora/scratch-to-reveal">Here's the repo</a>
+				<a class="subtitle" href="https://github.com/dellamora/scratch-to-reveal-svelte">Here's the repo</a>
 			</div>
 		</header>
 
