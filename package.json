@@ -36,7 +36,7 @@
   "author": "Francielle Dellamora",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dellamora/scratch-to-reveal-svelte"
+    "url": "git+https://github.com/dellamora/scratch-to-reveal-svelte.git"
   },
   "homepage": "https://github.com/dellamora/scratch-to-reveal-svelte#readme",
   "license": "MIT",
