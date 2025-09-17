@@ -1,6 +1,6 @@
 # Scratch to Reveal Svelte
 
-Wanted that scratch-card effect from Magic UI… but in Svelte. So I built it.
+<img src="/Users/dellamora/codiguinhos/scratch-to-reveal/gif.gif">
 
 ## Installation
 
