@@ -26,7 +26,8 @@ npm i scratch-to-reveal-svelte
 
 - **`width` / `height`** → Canvas size
 - **`minScratchPercentage`** → When to trigger complete event
-- **`gradientColors`** → Overlay colors ✨
+- **`gradientColors`** → Overlay colors 
+- **`imageUrl`** → Optional image to use instead of gradient
 - **`onComplete`** → Completion callback
 - **`className`** → Custom CSS classes
 
@@ -38,12 +39,8 @@ npm i scratch-to-reveal-svelte
 ## Methods
 
 - **`.reveal()`** → Reveal all content programmatically
+- **`.reset()`** → Reset to initial scratch state
 
-## Features
-
-- ✅ Works with keyboard (Enter/Space to reveal, Tab for focus)
-- ✅ Mobile-friendly touch support
-- ✅ IE11 compatible (with polyfills)
 
 ## License
 
